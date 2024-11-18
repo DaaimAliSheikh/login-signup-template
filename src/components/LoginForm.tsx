@@ -128,7 +128,7 @@ export function LoginForm() {
               {isLoading && (
                 <div className="w-4 h-4 rounded-full border-2 border-x-white animate-spin mr-2" />
               )}
-              Sign Up
+              Login
             </Button>
             <Link
               to={"/register"}
