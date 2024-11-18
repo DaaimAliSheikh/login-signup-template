@@ -19,12 +19,15 @@ import {
 import { useState } from "react";
 import { EyeIcon } from "lucide-react";
 import { EyeOffIcon } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 export function RegisterForm() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const navigate = useNavigate();
+
 
   const form = useForm<RegisterFormSchemaType>({
     resolver: zodResolver(RegisterFormSchema),
@@ -32,8 +35,9 @@ export function RegisterForm() {
 
   async function handleRegister(data: RegisterFormSchemaType) {
     setIsLoading(true);
-    alert(JSON.stringify(data));
+    console.log(data);
     setIsLoading(false);
+    navigate("/dashboard");
   }
 
   return (

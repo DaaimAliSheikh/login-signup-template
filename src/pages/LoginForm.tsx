@@ -19,11 +19,12 @@ import {
 import { useState } from "react";
 import { EyeIcon } from "lucide-react";
 import { EyeOffIcon } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function LoginForm() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const form = useForm<LoginFormSchemaType>({
     resolver: zodResolver(LoginFormSchema),
@@ -31,9 +32,10 @@ export function LoginForm() {
 
   async function handleLogin(data: LoginFormSchemaType) {
     setIsLoading(true);
-    alert(JSON.stringify(data));
+    console.log(data);
 
     setIsLoading(false);
+    navigate("/dashboard");
   }
 
   return (
