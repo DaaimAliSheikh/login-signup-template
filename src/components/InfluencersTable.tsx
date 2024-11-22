@@ -46,7 +46,7 @@ export const columns: ColumnDef<Influencer>[] = [
     accessorKey: "instaHandlers",
     header: "Insta Handlers",
     cell: ({ row }: CellContext<Influencer, unknown>) => (
-      <div className="lowercase">{row.getValue("instaHandlers")}</div>
+      <div>{row.getValue("instaHandlers")}</div>
     ),
   },
   {
